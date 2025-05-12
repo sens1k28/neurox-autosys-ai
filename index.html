@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeuroX AutoSys AI — Твой AI Автопилот для Контента</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* ... (все стили из предыдущего ответа остаются здесь) ... */
+        .button-glow {
+            box-shadow: 0 0 15px 2px theme('colors.emerald.500'), 0 0 30px 5px theme('colors.emerald.600 / 0.7)');
+        }
+        .button-glow:hover {
+            box-shadow: 0 0 20px 4px theme('colors.emerald.400'), 0 0 40px 8px theme('colors.emerald.500 / 0.8)');
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-accent': {
+                DEFAULT: '#10B981', // emerald-500
+                'light': '#34D399', // emerald-400
+                'dark': '#059669', // emerald-600
+              },
+              'brand-dark': {
+                DEFAULT: '#111827', // gray-900
+                'light': '#1F2937', // gray-800
+                'lighter': '#374151', // gray-700
+              }
+            },
+            animation: {
+              'subtle-pulse': 'subtlePulse 2s infinite ease-in-out',
+              'gradient-x': 'gradient-x 5s ease infinite',
+            },
+            keyframes: {
+              subtlePulse: {
+                '0%, 100%': { opacity: '1' },
+                '50%': { opacity: '.7' },
+              },
+              'gradient-x': {
+                '0%, 100%': {
+                    'background-size':'200% 200%',
+                    'background-position': 'left center'
+                },
+                '50%': {
+                    'background-size':'200% 200%',
+                    'background-position': 'right center'
+                }
+              }
+            }
+          }
+        }
+      }
+    </script>
+</head>
+<body class="bg-brand-dark text-gray-100 antialiased">
+
+    <!-- =================================================== -->
+    <!-- HERO SECTION -->
+    <!-- =================================================== -->
+    <section id="hero" class="min-h-screen flex flex-col items-center justify-center text-center bg-gradient-to-br from-brand-dark via-black to-brand-dark p-6 relative overflow-hidden">
+        <!-- Фоновые элементы для стиля Lihodey (можно добавить SVG или CSS-градиенты/шум) -->
+        <div class="absolute inset-0 opacity-5 animate-pulse">
+             <!-- Можно добавить SVG паттерн или шум -->
+        </div>
+        <div class="absolute -top-1/4 -left-1/4 w-1/2 h-1/2 bg-brand-accent/10 rounded-full filter blur-3xl animate-subtle-pulse"></div>
+        <div class="absolute -bottom-1/4 -right-1/4 w-1/2 h-1/2 bg-purple-600/10 rounded-full filter blur-3xl animate-subtle-pulse animation-delay-2000"></div>
+
+
+        <div class="relative z-10">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black uppercase tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-gray-100 via-gray-300 to-white mb-6 shadow-sm" style="text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                <span class="block">ТВОЙ AI АВТОПИЛОТ</span>
+                <span class="block text-brand-accent">ЗА <span class="animate-gradient-x bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600 bg-clip-text text-transparent">0 РУБЛЕЙ!</span></span>
+            </h1>
+
+            <p class="text-lg sm:text-xl md:text-2xl text-gray-300 max-w-xl lg:max-w-3xl mx-auto mb-10 leading-relaxed opacity-90">
+                ХВАТИТ СЛИВАТЬ БЮДЖЕТ И ВРЕМЯ НА РУТИНУ!
+                <span class="block mt-2">ЗАПУСТИ КОНТЕНТ-МАШИНУ, КОТОРАЯ РАБОТАЕТ <strong class="text-brand-accent font-semibold">24/7 БЕЗ ТЕБЯ.</strong></span>
+            </p>
+
+            <a href="#pricing"
+               class="inline-block bg-gradient-to-r from-brand-accent-light to-brand-accent-dark hover:from-brand-accent hover:to-brand-accent-dark text-white font-bold uppercase tracking-wider py-4 px-10 sm:py-5 sm:px-12 text-lg sm:text-xl rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out button-glow focus:outline-none focus:ring-4 focus:ring-brand-accent/50">
+                ЗАБРАТЬ СИСТЕМУ БЕСПЛАТНО
+            </a>
+            <p class="mt-6 text-sm text-gray-500 animate-pulse">
+                Жми, пока не разобрали! Места ограничены.
+            </p>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: ПРОБЛЕМА & РЕШЕНИЕ -->
+    <!-- =================================================== -->
+    <section id="problem-solution" class="py-16 md:py-24 bg-brand-dark-light">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">УЗНАЕШЬ СЕБЯ?</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">Твоя реальность сегодня – это боль каждого, кто пытается делать контент:</p>
+            <div class="grid md:grid-cols-2 gap-8 mb-16 text-left">
+                <div class="bg-brand-dark p-6 rounded-lg shadow-xl hover:shadow-brand-accent/20 transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-brand-accent mb-3 uppercase">ВРЕМЯ – В ТРУБУ!</h3>
+                    <p class="text-gray-300">Постинг, поиск идей, дизайн... Часы улетают, а выхлопа ноль. И так каждый день.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-xl hover:shadow-brand-accent/20 transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-brand-accent mb-3 uppercase">БЮДЖЕТ – В ПЕПЕЛ!</h3>
+                    <p class="text-gray-300">Копирайтеры, дизайнеры, таргетологи – каждый хочет твой кошелек. А он не резиновый!</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-xl hover:shadow-brand-accent/20 transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-brand-accent mb-3 uppercase">ТЕХНО-СТРАХ!</h3>
+                    <p class="text-gray-300">"Автоматизация", "API", "промты" – звучит как магия вуду? Думаешь, это не для тебя.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-xl hover:shadow-brand-accent/20 transition-shadow duration-300">
+                    <h3 class="text-2xl font-bold text-brand-accent mb-3 uppercase">РУТИНА УБИВАЕТ!</h3>
+                    <p class="text-gray-300">Одно и то же каждый день. Креатив на нуле, мотивация стремится к плинтусу.</p>
+                </div>
+            </div>
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4 mt-16">НО ЕСТЬ РЕШЕНИЕ!</h2>
+            <p class="text-xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                <strong class="text-brand-accent">NeuroX AutoSys AI</strong> — ЭТО ТВОЙ ПЕРСОНАЛЬНЫЙ <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-green-500">КОНТЕНТ-ЗАВОД</span> ПОД КЛЮЧ.
+                <span class="block mt-2">Готовая система из <strong class="text-white">БЕСПЛАТНЫХ</strong> инструментов, которая делает ВСЁ ЗА ТЕБЯ.</span>
+            </p>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: КАК ЭТО РАБОТАЕТ -->
+    <!-- =================================================== -->
+    <section id="how-it-works" class="py-16 md:py-24 bg-brand-dark">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">КАК ЭТО, ЧЕРТ ВОЗЬМИ, РАБОТАЕТ?</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">ТЫ НАЖИМАЕШЬ "СТАРТ" — И ТВОЙ ЛИЧНЫЙ КОНТЕНТ-ЗАВОД ПАШЕТ 24/7!</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-brand-dark-light p-6 rounded-lg shadow-xl border border-brand-dark-lighter hover:border-brand-accent transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl font-black text-brand-accent mb-4">01</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">СКАЧАЛ. НАСТРОИЛ. ЗАБЫЛ.</h3>
+                    <p class="text-gray-400 text-sm">Готовые шаблоны и инструкции. Копируй-вставляй – 15 минут и полетели!</p>
+                </div>
+                <div class="bg-brand-dark-light p-6 rounded-lg shadow-xl border border-brand-dark-lighter hover:border-brand-accent transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl font-black text-brand-accent mb-4">02</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">ИИ ГЕНЕРИТ – ТЫ ЧИЛИШЬ</h3>
+                    <p class="text-gray-400 text-sm">GPT-4 пишет, Hugging Face рисует, Opus Clip режет видосы. ВСЁ САМО.</p>
+                </div>
+                <div class="bg-brand-dark-light p-6 rounded-lg shadow-xl border border-brand-dark-lighter hover:border-brand-accent transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl font-black text-brand-accent mb-4">03</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">АВТОПОСТИНГ В СРОК</h3>
+                    <p class="text-gray-400 text-sm">Buffer + Make.com = твой контент публикуется по графику. Без сбоев и напомнинаний.</p>
+                </div>
+                <div class="bg-brand-dark-light p-6 rounded-lg shadow-xl border border-brand-dark-lighter hover:border-brand-accent transition-all duration-300 transform hover:-translate-y-1">
+                    <div class="text-5xl font-black text-brand-accent mb-4">04</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">МАСШТАБИРУЙ & КАЙФУЙ</h3>
+                    <p class="text-gray-400 text-sm">Запускай +10 акков, парси тренды, управляй лимитами. Твой контент-конвейер НЕ ОСТАНОВИТЬ!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: КОМПОНЕНТЫ & ИНСТРУМЕНТЫ -->
+    <!-- =================================================== -->
+    <section id="tools" class="py-16 md:py-24 bg-brand-dark-light">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">ВОТ ЧТО У ТЕБЯ ПОД КАПОТОМ ЭТОЙ РАКЕТЫ</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">КАЖДЫЙ ЭЛЕМЕНТ — ЗАРЯЖЕННАЯ ЧАСТЬ ТВОЕЙ КОНТЕНТ-ПУШКИ!</p>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🧠</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Make.com</h3>
+                    <p class="text-xs text-gray-500">МОЗГ ВСЕЙ СИСТЕМЫ. Твой личный ЦУП.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">✍️</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">GPT-4 (API)</h3>
+                    <p class="text-xs text-gray-500">НЕЙРО-КОПИРАЙТЕР 80-ГО УРОВНЯ.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🎨</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Hugging Face</h3>
+                    <p class="text-xs text-gray-500">ТВОЯ БЕСПЛАТНАЯ ФАБРИКА ВИЗУАЛА.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">💾</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Google Drive / OneDrive</h3>
+                    <p class="text-xs text-gray-500">БРОНИРОВАННЫЕ ХРАНИЛИЩА.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🚀</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Buffer</h3>
+                    <p class="text-xs text-gray-500">АВТОПИЛОТ ДЛЯ ПОСТИНГА.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">📊</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Apify / Airtable</h3>
+                    <p class="text-xs text-gray-500">ТВОИ ШПИОНЫ И СЧЕТОВОДЫ.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🎬</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Video Editors</h3>
+                    <p class="text-xs text-gray-500">ВИДЕО-ЦЕХ НА АВТОМАТЕ (Opus, Veed...).</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🤖</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Coze</h3>
+                    <p class="text-xs text-gray-500">ТВОЙ ИИ-БОТ-УПРАВДОМ.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">💬</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Telegram-бот</h3>
+                    <p class="text-xs text-gray-500">ВОРОНКА И РАССЫЛКА В КАРМАНЕ.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🕵️</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Dolphin Anty</h3>
+                    <p class="text-xs text-gray-500">РЕЖИМ "БОГ" ДЛЯ МАСШТАБИРОВАНИЯ.</p>
+                </div>
+                <div class="bg-brand-dark p-4 rounded-lg shadow-lg text-center hover:shadow-brand-accent/30 transition-shadow duration-300">
+                    <div class="text-4xl text-brand-accent mb-2">🧪</div>
+                    <h3 class="font-bold text-white text-sm sm:text-base">Poe.com</h3>
+                    <p class="text-xs text-gray-500">ПЕСОЧНИЦА ДЛЯ ПРОМТ-ИНЖЕНЕРА.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: ТВОИ РЕЗУЛЬТАТЫ С АВТОПИЛОТОМ -->
+    <!-- =================================================== -->
+    <section id="results" class="py-16 md:py-24 bg-brand-dark">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">ТВОЙ КОНТЕНТ — НА ПОЛНОМ АВТОМАТЕ.</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">ТВОИ РЕЗУЛЬТАТЫ — <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600">В КОСМОСЕ!</span> СМОТРИ, ЧТО БУДЕТ УЖЕ В ПЕРВУЮ НЕДЕЛЮ (И ЭТО ТОЛЬКО РАЗГОН!)</p>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 text-left">
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">0 ₽</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">ЗАТРАТ НА КОНТЕНТ</h3>
+                    <p class="text-gray-400">Дизайнеры, копирайтеры, SMM – ПОЛНЫЙ НОЛЬ. Деньги остаются у тебя.</p>
+                </div>
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">300+</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">ПОСТОВ В МЕСЯЦ</h3>
+                    <p class="text-gray-400">Текст + картинка. Без единого клика с твоей стороны. На полном автомате.</p>
+                </div>
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">100+</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">ЧАСОВ ЭКОНОМИИ</h3>
+                    <p class="text-gray-400">В месяц. Трать время на себя, семью, развитие бизнеса – не на рутину!</p>
+                </div>
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">10X</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">МАСШТАБИРОВАНИЕ</h3>
+                    <p class="text-gray-400">Легко запускай на 10+ аккаунтов без страха бана. Строй свою контент-империю.</p>
+                </div>
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">-99%</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">РУЧНОЙ РАБОТЫ</h3>
+                    <p class="text-gray-400">Автопилот делает ВСЁ. Ты только задаешь направление и собираешь сливки.</p>
+                </div>
+                <div class="bg-brand-dark-light p-8 rounded-lg shadow-xl transform transition-all duration-300 hover:scale-105 hover:shadow-brand-accent/40">
+                    <div class="text-5xl font-black text-brand-accent mb-3">3X</div>
+                    <h3 class="text-xl font-bold text-white mb-2 uppercase">ПРОИЗВОДИТЕЛЬНОСТЬ</h3>
+                    <p class="text-gray-400">Тройной удар по лимитам с Apify, Airtable, Make и антиком. Больше контента!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: БОНУСЫ -->
+    <!-- =================================================== -->
+    <section id="bonuses" class="py-16 md:py-24 bg-brand-dark-light">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">ЭТО ЕЩЁ НЕ ВСЁ, ЧЕМПИОН!</h2>
+            <p class="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">ДЕРЖИ БОНУСЫ, КОТОРЫЕ <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pink-500 to-purple-600">ВЗОРВУТ</span> ТВОИ РЕЗУЛЬТАТЫ! ВСЁ, ЗА ЧТО ДРУГИЕ ДЕРУТ БЕШЕНЫЕ БАБКИ – ТЕБЕ БОНУСОМ!</p>
+             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">ЗОЛОТАЯ ЖИЛА КРЕДИТОВ</h3>
+                    <p class="text-gray-400 text-sm">Гайды: $300 Google Cloud, $200 Azure, $1000 Vertex AI. Бери и юзай!</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">АВТОРСКИЕ GPT-ПРОМТЫ</h3>
+                    <p class="text-gray-400 text-sm">Не вода, а мясо! Проверены сотнями генераций – контент, который цепляет.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">ГОТОВЫЙ Coze-БОТ + Webhook</h3>
+                    <p class="text-gray-400 text-sm">Интеграция с OneNote/OneDrive за 5 мин. Идеи сразу в работу!</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">ПАКЕТ "БИЗНЕС-БОТ ДЛЯ TG"</h3>
+                    <p class="text-gray-400 text-sm">С пошаговой инструкцией. Твоя личная воронка и рассыльщик.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">TG-БОТ "NeuroSeo"</h3>
+                    <p class="text-gray-400 text-sm">Твой карманный SEO-шник! Заголовки, описания, хештеги за секунды.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">БЕСПЛАТНЫЙ ЧАТ Tawk.to</h3>
+                    <p class="text-gray-400 text-sm">Для твоего сайта. Общайся с клиентами напрямую, собирай лидов.</p>
+                </div>
+                <div class="bg-brand-dark p-6 rounded-lg shadow-lg border-l-4 border-brand-accent">
+                    <h3 class="text-lg font-bold text-white mb-1 uppercase">БАЗА ШАБЛОНОВ MAKE.COM</h3>
+                    <p class="text-gray-400 text-sm">Постоянно пополняемая! Готовые связки – бери, адаптируй, запускай.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: ТАРИФ/ЦЕНА (ФИНАЛЬНЫЙ CTA) -->
+    <!-- =================================================== -->
+    <section id="pricing" class="py-16 md:py-24 bg-gradient-to-b from-brand-dark to-black">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-4">
+                ГОТОВ ЗАПУСТИТЬ СВОЮ ЛИЧНУЮ <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-500 to-emerald-600">КОНТЕНТ-ФАБРИКУ</span>?
+            </h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-3xl mx-auto">
+                ПОКА ДРУГИЕ НОЮТ О ДОРОГОВИЗНЕ И СЛОЖНОСТЯХ, ТЫ БУДЕШЬ ШТАМПОВАТЬ КОНТЕНТ 24/7 – <strong class="text-brand-accent">АБСОЛЮТНО БЕСПЛАТНО!</strong><br>
+                ЗАБУДЬ О ДИЗАЙНЕРАХ, КОПИРАЙТЕРАХ И SMM-ЩИКАХ. ТЕПЕРЬ ТЫ САМ СЕБЕ КОНТЕНТ-АРМИЯ!
+            </p>
+            <a href="#" <!-- Ссылка на получение -->
+               class="inline-block bg-gradient-to-r from-red-500 via-pink-500 to-purple-600 hover:from-red-600 hover:via-pink-600 hover:to-purple-700 text-white font-black uppercase tracking-wider py-5 px-12 sm:py-6 sm:px-16 text-xl sm:text-2xl rounded-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out focus:outline-none focus:ring-4 focus:ring-pink-500/50 animate-subtle-pulse">
+                ЗАБРАТЬ "AI АВТОПИЛОТ" БЕСПЛАТНО ПРЯМО СЕЙЧАС!
+            </a>
+            <p class="mt-6 text-gray-500">
+                Это твой шанс. Не упусти.
+            </p>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- SECTION: FAQ -->
+    <!-- =================================================== -->
+    <section id="faq" class="py-16 md:py-24 bg-brand-dark-light">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl font-black uppercase text-white mb-12 text-center">ЕСТЬ ВОПРОСЫ? У НАС ЕСТЬ ОТВЕТЫ!</h2>
+            <div class="max-w-3xl mx-auto space-y-6">
+                <details class="bg-brand-dark p-6 rounded-lg shadow-lg group">
+                    <summary class="flex justify-between items-center font-bold text-white text-lg uppercase cursor-pointer hover:text-brand-accent transition-colors">
+                        <span>Это реально 100% бесплатно? Где подвох?</span>
+                        <span class="transform transition-transform duration-300 group-open:rotate-45 text-brand-accent text-2xl">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        Да, сама СИСТЕМА "AI Автопилот" (инструкции, шаблоны, промты) предоставляется бесплатно. Большинство инструментов в связке имеют щедрые бесплатные тарифы (Make.com 1000 операций, Hugging Face кредиты, Buffer 3 соцсети и т.д.). Некоторые, как Apify, могут потребовать $5/мес для расширенных нужд, но это капля в море по сравнению с наймом спецов. Мы также даем гайды по получению до $1500 бонусов на облачные сервисы.
+                    </p>
+                </details>
+                 <details class="bg-brand-dark p-6 rounded-lg shadow-lg group">
+                    <summary class="flex justify-between items-center font-bold text-white text-lg uppercase cursor-pointer hover:text-brand-accent transition-colors">
+                        <span>Я новичок, смогу ли я настроить?</span>
+                        <span class="transform transition-transform duration-300 group-open:rotate-45 text-brand-accent text-2xl">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        АБСОЛЮТНО! Мы сделали всё максимально "копируй-вставляй". Подробные пошаговые инструкции, видеоуроки (если будут), готовые шаблоны для Make.com. Если умеешь пользоваться мышкой и клавиатурой – справишься за вечер. Никаких навыков программирования не нужно!
+                    </p>
+                </details>
+                <details class="bg-brand-dark p-6 rounded-lg shadow-lg group">
+                    <summary class="flex justify-between items-center font-bold text-white text-lg uppercase cursor-pointer hover:text-brand-accent transition-colors">
+                        <span>Сколько времени это реально экономит?</span>
+                        <span class="transform transition-transform duration-300 group-open:rotate-45 text-brand-accent text-2xl">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        Зависит от объема твоего контента. Но даже если ты ведешь 2-3 соцсети с регулярным постингом, экономия может составить от 10 до 30+ часов в месяц. Представь: поиск идей, написание текстов, создание картинок, планирование публикаций – всё это делает автопилот.
+                    </p>
+                </details>
+                 <details class="bg-brand-dark p-6 rounded-lg shadow-lg group">
+                    <summary class="flex justify-between items-center font-bold text-white text-lg uppercase cursor-pointer hover:text-brand-accent transition-colors">
+                        <span>А что если у меня закончатся лимиты на бесплатных тарифах?</span>
+                        <span class="transform transition-transform duration-300 group-open:rotate-45 text-brand-accent text-2xl">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        Во-первых, наши гайды по Apify + Airtable + Make и антидетект-браузеру помогают УТРОИТЬ многие лимиты. Во-вторых, даже если где-то понадобится минимальная плата (например, $5 за Apify для супер-масштаба), это несравнимо с десятками тысяч рублей на команду. Плюс, мы постоянно ищем и добавляем новые лайфхаки по бесплатным кредитам.
+                    </p>
+                </details>
+                 <details class="bg-brand-dark p-6 rounded-lg shadow-lg group">
+                    <summary class="flex justify-between items-center font-bold text-white text-lg uppercase cursor-pointer hover:text-brand-accent transition-colors">
+                        <span>Какие соцсети я смогу автоматизировать?</span>
+                        <span class="transform transition-transform duration-300 group-open:rotate-45 text-brand-accent text-2xl">+</span>
+                    </summary>
+                    <p class="text-gray-400 mt-4 text-sm leading-relaxed">
+                        Через Buffer (бесплатный план) ты можешь подключить до 3 каналов из списка: Instagram, Facebook (страницы и группы), Twitter (X), LinkedIn (профили и страницы), Pinterest, TikTok, Mastodon, Google Business Profile. Для других сетей или большего количества каналов можно использовать Make.com напрямую или рассмотреть платные тарифы Buffer, если это окупится.
+                    </p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- =================================================== -->
+    <!-- FOOTER -->
+    <!-- =================================================== -->
+    <footer class="py-12 bg-black text-center">
+        <div class="container mx-auto px-6">
+            <p class="text-gray-500 text-sm">
+                &copy; <span id="currentYear"></span> NeuroX AutoSys AI (Павел). Все права защищены... или нет, бери и пользуйся! :)
+            </p>
+            <p class="text-gray-600 text-xs mt-2">
+                Этот лендинг сделан с любовью и Tailwind CSS.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+
+    <!-- Start of Tawk.to Script -->
+    <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    s1.async=true;
+    s1.src='https://embed.tawk.to/6821e387f3a72c190e2f8d3b/1ir261iu9'; // ВАШ ИЗМЕНЕННЫЙ SRC
+    s1.charset='UTF-8';
+    s1.setAttribute('crossorigin','*');
+    s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script>
+    <!--End of Tawk.to Script-->
+
+</body>
+</html>
